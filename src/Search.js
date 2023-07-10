@@ -70,7 +70,7 @@ export default function SearchEngine() {
             <br />
             <br />
             <img src={icon} alt={description} />{" "}
-            <span class="temperature" id="temperature-input">
+            <span className="temperature" id="temperature-input">
             {Math.round(temperature)}{" "}
               <a href="/" className="units">
                 °C|
@@ -85,11 +85,12 @@ export default function SearchEngine() {
       <div className="col">
         <div className="card h-100">
           <div className="card-body-1">
-            <p className="card-text-1" />
+            <div className="card-text-1" >
             <br />
-            <p>
+            
               <span> Last updated: </span>{" "}
               <span className="card-text-1">5:00</span>
+              <div>
               <ul>
                 <li>
                   <div id="description">{description} </div>
@@ -101,7 +102,8 @@ export default function SearchEngine() {
                   Wind: <span id="wind">{Math.round(wind)}</span> km/h
                 </li>
               </ul>
-            </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -147,7 +149,7 @@ export default function SearchEngine() {
             <br />
             <br />
             <img src={icon} alt={description} />{" "}
-            <span class="temperature" id="temperature-input">
+            <span className="temperature" id="temperature-input">
             16{" "}
               <a href="/" className="units">
                 °C|
@@ -162,9 +164,9 @@ export default function SearchEngine() {
       <div className="col">
         <div className="card h-100">
           <div className="card-body-1">
-            <p className="card-text-1" />
+            <div className="card-text-1" >
             <br />
-            <p>
+            <div>
               <span> Last updated: </span>{" "}
               <span className="card-text-1">5:00</span>
               <ul>
@@ -178,7 +180,8 @@ export default function SearchEngine() {
                   Wind: <span id="wind">2</span> km/h
                 </li>
               </ul>
-            </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

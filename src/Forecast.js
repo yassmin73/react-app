@@ -46,7 +46,7 @@ export default function Forecast() {
           <h3 className="card-title">Mon</h3>
 
           <div className="card-body">
-            <img src={cloudy} class="forecast" alt="forecast weather" />
+            <img src={cloudy} className="forecast" alt="forecast weather" />
             <div className="high-temperature">11° </div>
             <div className="low-temperature"> 1°</div>
           </div>

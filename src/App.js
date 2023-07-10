@@ -8,6 +8,8 @@ export default function App() {
        
         <Search />
       </div>
+      <div className="git-source"> <a href="https://github.com/yassmin73/react-app.git"> Open-source code by</a> Yasmin</div>
+
     </div>
   );
 }
