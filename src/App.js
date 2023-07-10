@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './styles.css';
 import Search from "./Search";
 export default function App() {
