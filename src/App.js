@@ -6,7 +6,7 @@ export default function App() {
     <div className="App">
       <div className="weather-app">
        
-        <Search />
+        <Search defaultCity="Ahvaz"/>
       </div>
       <div className="git-source"> <a href="https://github.com/yassmin73/react-app.git"> Open-source code by</a> Yasmin</div>
 
