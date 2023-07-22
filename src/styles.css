@@ -108,8 +108,9 @@
   }
   .temperature {
     font-weight: bold;
-    font-size: 34px;
-    padding: 5px;
+    font-size: 50px;
+    position: relative;
+    top: -15px;
   }
   a {
     text-decoration: none;
@@ -122,9 +123,10 @@
   }
   .units {
     position: relative;
-    top: -10px;
+    top: -20px;
     font-size: 16px;
-    right: 5px;
+    right: 10px;
+    
   }
   .weather-forecast {
     margin-top: 20px;
@@ -133,4 +135,3 @@
   .fa-search {
     font-size: 18px;
   }
-  

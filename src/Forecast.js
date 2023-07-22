@@ -1,6 +1,6 @@
 import React from "react";
-import sunny from "./01d@2x.png";
-import cloudy from "./02d@2x.png";
+import sunny from "./sunny.png";
+import cloudy from "./cloudy.png";
 import "./styles.css";
 export default function Forecast() {
   return (
