@@ -25,6 +25,7 @@ export default function SearchEngine(props) {
     setWeather({
       loaded: true,
       city: response.data.name,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -68,7 +69,7 @@ export default function SearchEngine(props) {
     </span>
     <WeatherInfo data={weather}/>
   </div>
-      <Forecast />
+      <Forecast coordinates={weather.coordinates} />
     </div>
   );
 }  else {

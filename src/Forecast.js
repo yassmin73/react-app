@@ -1,81 +1,49 @@
-import React from "react";
-import sunny from "./sunny.png";
-import cloudy from "./cloudy.png";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
-export default function Forecast() {
+
+import axios from "axios";
+import ForecastDay from "./ForecastDay";
+
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+useEffect(() => {
+setLoaded(false);
+}, [props.coordinates]);
+
+
+  function handleSubmit(response) {
+setForecast(response.data.daily);
+setLoaded(true);
+  }
+
+if (loaded) {
   return (
     <div className="row">
-      <div className="col-2">
-        <div className="card h-100">
-          <h3 className="card-title">Fri</h3>
+     {forecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <ForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
 
-          <div className="card-body">
-            <img src={sunny} className="forecast" alt="forecast weather" />
-            <div className="high-temperature">7° </div>
-            <div className="low-temperature"> 2°</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-2">
-        <div className="card h-100">
-          <h3 className="card-title">Sat</h3>
-
-          <div className="card-body">
-            <img src={sunny} className="forecast" alt="forecast weather" />
-            <div className="high-temperature">13° </div>
-            <div className="low-temperature"> 0°</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-2">
-        <div className="card h-100">
-          <h3 className="card-title">Sun</h3>
-
-          <div className="card-body">
-            <img src={sunny} className="forecast" alt="forecast weather" />
-            <div className="high-temperature">14° </div>
-            <div className="low-temperature"> 4°</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-2">
-        <div className="card h-100">
-          <h3 className="card-title">Mon</h3>
-
-          <div className="card-body">
-            <img src={cloudy} className="forecast" alt="forecast weather" />
-            <div className="high-temperature">11° </div>
-            <div className="low-temperature"> 1°</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-2">
-        <div className="card h-100">
-          <h3 className="card-title">Tue</h3>
-
-          <div className="card-body">
-            <img src={cloudy} className="forecast" alt="forecast weather" />
-            <div className="high-temperature">11° </div>
-            <div className="low-temperature"> 0°</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-2">
-        <div className="card h-100">
-          <h3 className="card-title">Wed</h3>
-
-          <div className="card-body">
-            <img src={cloudy} className="forecast" alt="forecast weather" />
-            <div className="high-temperature">11° </div>
-            <div className="low-temperature"> 2°</div>
-          </div>
-        </div>
-      </div>
-    </div>
+     </div>
   );
+ 
+} else {
+  const apiKey = "9eca7aac0b071aa16e3cb063adba0785";
+  let lat= props.coordinates.lat;
+  let lon= props.coordinates.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(handleSubmit)
+  
+  return null; 
+ 
+}
 }
